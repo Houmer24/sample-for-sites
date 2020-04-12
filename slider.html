@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Слайдер однако</title>
+		<style>
+		/*Слайдер*/
+		.slide1 { 
+			animation-delay: 7.5s;
+			background: HotPink;
+			}
+		.slide2 { 
+			animation-delay: 5s;
+			background: Beige;
+			}
+		.slide3 { 
+			animation-delay: 2.5s;
+			background: LightCoral;
+			}
+		.slide4 { 
+			animation-delay: 0s;
+			background: IndianRed;
+			}
+		.slider {
+			width: 100%;
+			height: 100%;
+			/*margin: auto;*/
+			/*margin-top: 25px;*/
+			border: 1px solid black;
+			position: relative;
+			overflow: hidden;
+		}
+		.slide {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation-name: slid;
+			animation-duration: 10s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}
+		@keyframes slid {
+			from {top: 0;left: 0;}
+			12.5% {transform: translate(0, 0);}
+			25% {transform: translate(-100%, 0);}
+			36% {transform: translate(-100%, 100%);}
+			37% {transform: translate(100%, 100%);}
+			87.5% {transform: translate(100%, 0);}
+			to {transform: (0px, 0px);}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="slider">
+			<div class="slide slide1"></div>
+			<div class="slide slide2"></div>
+			<div class="slide slide3"></div>
+			<div class="slide slide4"></div>
+		</div>
+	</body>
+</html>

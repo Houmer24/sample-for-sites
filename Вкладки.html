@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Вкладки</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+  body {
+    font-family: Roboto;
+  }
+   .tabs {
+    position: relative; /* Относительное позиционирование */
+   }
+   .tab, .tab-title {
+    display: inline-block; /* Выстраиваем по горизонтали */
+   }
+   .tab input[type="radio"] {
+    /*display: none;*/
+  }
+   .tab-title {
+    background: #ccc; /* Цвет фона */
+    padding: 5px 10px; /* Поля вокруг текста */
+    border: 1px solid #666; /* Параметры рамки */
+    border-bottom: none; /* Снизу линию убираем */
+   }
+   .tab-content {
+    position: absolute; /* Абсолютное позиционирование */
+    border: 1px solid #666; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    left: 0; /* Размещаем у левого края */
+    width: calc(100% - 20px); /* Ширина содержимого */
+    display: none; /* Прячем вкладку */
+   }
+   .tab :checked + .tab-title {
+    position: relative; /* Относительное позиционирование */
+    background: #fff; /* Цвет фона */
+    top: 1px; /* Сдвигаем вниз */
+    z-index: 1; /* Отображаем поверх содержимого */
+   }
+   .tab :checked ~ .tab-content {
+    display: block; /* Показываем активную вкладку */
+   }
+  </style>
+ </head>
+ <body>
+<style>
+  .wrapper {
+    background: LightCoral;
+    display: flex;
+  }
+  .left__wrapper {
+    display: flex;
+    flex-direction: column;
+    background: HotPink;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 0 0 20vw;
+  }
+  .right__wrapper {
+    display: flex;
+    flex-direction: column;
+    background: LightPink;
+  }
+  .mine__tab {
+    background: DarkSalmon;
+  }
+  .mine__tab-label {
+    background: maroon;
+    display: block
+  }
+  .mine__tab-label:hover {
+    color: white;
+  }
+  .mine__tab-content {
+    background: IndianRed;
+    display: none;
+  }
+  .mine__tab :checked ~ .mine__tab-content {
+    display: flex;
+    height: 30vh;
+    /*align-items: center;
+    justify-content: center;*/
+    flex-direction: column;
+  }
+  .mine__tab input[type="radio"] {
+    display: none;
+  }
+  .upper-block {
+    background: MediumSeaGreen;
+    flex-grow:1;
+    align-self: center;
+  }
+  .bottom-buttons {
+    background: DarkGreen;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 0 0 5vh;
+
+  }
+  /*.bottom-buttons div {
+        flex-grow:1;
+  }*/
+  button {
+    width: 6.4em;
+    height: 1em;
+  }
+
+
+</style>
+  <div class="wrapper">
+    <div class="left__wrapper">
+      <div><label for="mine-tab1" class="mine__tab-label">Новости</label></div>
+      <div><label for="mine-tab2" class="mine__tab-label">Тематики</label></div>
+      <div><label for="mine-tab3" class="mine__tab-label">Интеграция</label></div>
+    </div>
+    <div class="right__wrapper">
+
+      <div class="mine__tab">
+        <input type="radio" checked name="mine__tab-group" id="mine-tab1">
+        <div class="mine__tab-content">test1-test1</div>
+      </div>
+
+      <div class="mine__tab">
+        <input type="radio" name="mine__tab-group" id="mine-tab2">
+        <div class="mine__tab-content">
+          <div class="upper-block">In the beginning God created the heavens and the earth. Now the earth was formless and void, and darkness was over the surface of the deep. And the Spirit of God was hovering over the surface of the waters.…</div>
+          <div class="bottom-buttons">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mine__tab">
+        <input type="radio" name="mine__tab-group" id="mine-tab3">
+       <div class="mine__tab-content">
+          <div class="upper-block">In the beginning God created the heavens and the earth. Now the earth was formless and void, and darkness was over the surface of the deep. And the Spirit of God was hovering over the surface of the waters.…</div>
+          <div class="bottom-buttons">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <!--div class="tabs">
+   <div class="tab">
+    <input type="radio" id="tab1" name="tab-group" checked>
+    <label for="tab1" class="tab-title">Вкладка 1</label> 
+    <section class="tab-content">Один</section>
+   </div> 
+   <div class="tab">
+    <input type="radio" id="tab2" name="tab-group">
+    <label for="tab2" class="tab-title">Вкладка 2</label> 
+    <section class="tab-content">Два</section>
+   </div>
+   <div class="tab">
+    <input type="radio" id="tab3" name="tab-group">
+    <label for="tab3" class="tab-title">Вкладка 3</label> 
+    <section class="tab-content">Три</section> 
+   </div> 
+  </div-->
+
+ </body>
+</html>

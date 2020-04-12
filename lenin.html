@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Тест для Владимира Ильича</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+/*Общее*/
+		@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+		body {
+			font-family: Roboto;
+			color: white;
+		}
+		header {
+			background: DarkRed;
+			height: 20vh;
+		}
+		.wrapper {
+			background: DarkRed;
+			display: flex;
+			height: 65vh;
+		}
+		.left__wrapper {
+			display: flex;
+			flex-direction: column;
+			background: DarkRed;
+			align-items: center;
+			justify-content: space-evenly;
+			flex: 0 0 20vw;
+		}
+		.right__wrapper {
+			display: flex;
+			flex-direction: column;
+			background: LightPink;
+		}
+		.mine__tab {
+			background: DarkSalmon;
+		}
+		.mine__tab-label {
+			display: block;
+		}
+		.mine__tab-label:hover {
+			color: black;
+		}
+		.mine__tab-content {
+			background: IndianRed;
+			display: none;
+		}
+		.mine__tab :checked ~ .mine__tab-content {
+			display: flex;
+			height: 65vh;
+			flex-direction: column;
+		}
+		.mine__tab input[type="radio"] {
+			display: none;
+		}
+		.upper-block {
+			background: Brown;
+			flex-grow:1;
+			position: relative;
+			width: 75vw;
+			overflow: hidden;
+		}
+		.bottom-buttons {
+			background: DarkRed;
+			display: flex;
+			justify-content: space-evenly;
+			flex: 0 0 5vh;
+			padding-top: 1.6em;
+		}
+		button {
+			width: 6.4em;
+			height: 1em;
+		}
+/*Слайдер*/
+		.slide1 { 
+			animation-delay: 7.5s;
+			background: IndianRed;
+			}
+		.slide2 { 
+			animation-delay: 5s;
+			background: Beige;
+			}
+		.slide3 { 
+			animation-delay: 2.5s;
+			background: LightCoral;
+			}
+		.slide4 { 
+			animation-delay: 0s;
+			background: Silver;
+			}
+		.slide {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation-name: slid;
+			animation-duration: 10s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}
+		@keyframes slid {
+			from {top: 0;left: 0;}
+			12.5% {transform: translate(0, 0);}
+			25% {transform: translate(-100%, 0);}
+			36% {transform: translate(-100%, 100%);}
+			37% {transform: translate(100%, 100%);}
+			87.5% {transform: translate(100%, 0);}
+			to {transform: (0px, 0px);}
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+
+		</header>
+		<div class="wrapper">
+			<div class="left__wrapper">
+				<div><label for="mine-tab1" class="mine__tab-label">Новости</label></div>
+				<div><label for="mine-tab2" class="mine__tab-label">Тематики</label></div>
+				<div><label for="mine-tab3" class="mine__tab-label">Интеграция</label></div>
+			</div>
+			<div class="right__wrapper">
+				<div class="mine__tab">
+					<input type="radio" checked name="mine__tab-group" id="mine-tab1">
+					<div class="mine__tab-content">
+						<div class="upper-block">In the beginning God created the heavens and the earth. Now the earth was formless and void, and darkness was over the surface of the deep. And the Spirit of God was hovering over the surface of the waters.…</div>
+					</div>
+				</div>
+				<div class="mine__tab">
+					<input type="radio" name="mine__tab-group" id="mine-tab2">
+					<div class="mine__tab-content">
+						<div class="upper-block">In the beginning God created the heavens and the earth. Now the earth was formless and void, and darkness was over the surface of the deep. And the Spirit of God was hovering over the surface of the waters.…</div>
+						<div class="bottom-buttons">
+							<button></button>
+							<button></button>
+							<button></button>
+							<button></button>
+						</div>
+					</div>
+				</div>
+				<div class="mine__tab">
+					<input type="radio" name="mine__tab-group" id="mine-tab3">
+					<div class="mine__tab-content">
+						<div class="upper-block">
+							<div class="slide slide1"></div>
+							<div class="slide slide2"></div>
+							<div class="slide slide3"></div>
+							<div class="slide slide4"></div>
+						</div>
+						<div class="bottom-buttons">
+							<button></button>
+							<button></button>
+							<button></button>
+							<button></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

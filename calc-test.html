@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Тест калькулятора cbkr.spb.ru</title>
+		<script src="vendors/jquery/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+
+		<section>
+			<p>test</p>
+		</section>
+
+		<section class="price"><a id="price"></a>
+		<div class="price__wrap">
+			<div class="price__header">
+				<h2>Цены</h2>
+			</div>
+			<form style="">
+				<div class="price__formnames"><label class="price__formnames">Тип организации</label></div>
+				<div>
+					<select id="org-type" style="height: 1.8em; font-size: 1.8em; width: 100%;border-top:none;border-left:none;border-right:none;">
+						<option>ООО</option>
+						<option>ИП</option>
+					</select>
+				</div>
+				<div class="price__formnames"><label class="price__formnames">Система налогооблажения</label>
+				</div>
+				<div>
+					<select style="height: 1.7em; font-size: 1.8em; width: 100%;border-top:none;border-left:none;border-right:none;" id="no-type">
+						<option></option>
+						<option>ОСНО (основная система налогооблажения)</option>
+						<option>УСН, ЕНВД</option>
+						<option>ОСНО, УСН, патент, ЕНВД</option>
+					</select>
+				</div>
+				<div style="display:flex; justify-content: space-between;">
+					<div class="price__formnames">Примерная стоимость</div>
+					<div  id="price-result" class="price__formnames" style="font-weight: bold;">7000</div>
+				</div>
+			</form>
+			<div class="dealer-block__dealer-price"><a href="#" class="connect-form" style="/*color:white;*/">Узнать точную цену</a></div>
+		</div>
+	</section>
+	<script>
+//<===============================================================>
+		/*КАЛЬКУЛЯТОР РАСЧЕТА ПРИМЕРНОЙ СТОИМОСТИ */	
+//<===============================================================>
+		/*Зададим массив возможных цен за услуги*/
+//<===============================================================>
+		let result = ['7000','5000'];
+//<===============================================================>
+//<===============================================================>
+		/*Отражаем информацию о стоимости для ИП + н/о ИП,  и ООО на основной системе н/о - При клике на id = org-type, вывод в id = no-type, плюс вывод в id = price-result*/
+//<===============================================================>
+		$(function(){
+			$('#org-type').click(function(){
+				if ($('#org-type :selected').val() == 'ИП') {
+					//console.log('бамс');
+					$('#no-type :selected').html('ОСНО, УСН, патент, ЕНВД');
+					$('#price-result').html(result[1]);
+				} /*else if ($('#no-type :selected').val() == 'УСН, ЕНВД') {
+					$('#price-result').html(result[1]);
+				} */else {
+					$('#no-type :selected').html('ОСНО (основная система налогооблажения)');
+					$('#price-result').html(result[0]);				
+				}
+			})
+		});
+//<===============================================================>
+//<===============================================================>
+		/*Отражаем информацию о стоимости для ООО на УСН,ЕНВД - при клике на id = no-type, вывод в id = price-result*/
+//<===============================================================>
+		$(function(){
+			$('#no-type').click(function(){
+				if ($('#no-type :selected').val() == 'УСН, ЕНВД') {
+					$('#price-result').html(result[1]);
+					console.log('бамс');
+				} else {
+					$('#no-type :selected').html('ОСНО (основная система налогооблажения)');
+					$('#price-result').html(result[0]);				
+				}
+			})
+		});
+//<===============================================================>
+	</script>
+	</body>
+</html>
